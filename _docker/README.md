@@ -23,6 +23,9 @@ docker-compose down
 ■プロジェクトルートへ移動
 cd /home/docker/dcgdev
 
+■環境変数を適用
+source /root/.profile
+
 ■Expressの起動
 ・実行中bashに処理が戻る（デーモン起動）
 forever start ./exp/bin/www
