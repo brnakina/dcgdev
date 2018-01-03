@@ -1,1 +1,1 @@
-FROM brnakina/node-express-socketio-2
+FROM brnakina/node-express-socketio-3

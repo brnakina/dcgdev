@@ -12,7 +12,6 @@ services:
     build: ./node.js
     ports:
       - '3000:3000'
-      - '443:443'
     tty: true
     volumes:
       - ../../:/home/docker
