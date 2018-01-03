@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<script src="/socket.io/socket.io.js"></script>
+<<<<<<< HEAD
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+=======
+>>>>>>> 65984fad1d701a6659396aa2206980d1d6bf95a1
+		<script>
+		  $(function () {
+		    var socket = io();
+		    $('form').submit(function(){
+		      socket.emit('chat message', $('#m').val());
+		      $('#m').val('');
+		      return false;
+		    });
+		    socket.on('chat message', function(msg){
+		      $('#messages').append($('<li>').text(msg));
+		    });
+		  });
+		</script>
+<<<<<<< HEAD
+=======
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+>>>>>>> 65984fad1d701a6659396aa2206980d1d6bf95a1
+		<script src="js/main.js"></script>
+		<script>$(Main.init);</script>
+		<title>sample0</title>
+	</head>
+	<body>
+		<canvas id="my_canvas" width="640" height="360"></canvas>
+	</body>
+</html>
