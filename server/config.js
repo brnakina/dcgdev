@@ -1,3 +1,4 @@
+// TODO　まだ未使用状態
 exports.settings = {
 	jsupdate		:	'201801020410',
 	express_url		:	'http://localhost',
