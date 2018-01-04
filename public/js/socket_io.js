@@ -4,7 +4,10 @@ Main.socket_io = (function(){
 
 	socket.emit('init');
 
-	socket.on('init_done', Main.refresh);
+	socket.on('init_done', function(battle){
+	    Main.init(battle);
+	    Main.refresh(battle);
+	})
 
 	$('form').submit(function(){
 	  socket.emit('chat message', $('#m').val());
