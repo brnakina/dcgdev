@@ -20,6 +20,12 @@ docker-compose down
 **Linux上（コンテナ内）**
 
 ```bash
+■コンテナ再構築後初回だけnpmからパッケージを再取得する
+npm install express;
+npm install socket_io;
+npm install forever;
+npm install mysql;
+
 ■プロジェクトルートへ移動
 cd /home/docker/dcgdev
 

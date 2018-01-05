@@ -1,8 +1,9 @@
-// TODO　まだ未使用状態
 exports.settings = {
-	jsupdate		:	'201801020410',
-	express_url		:	'http://localhost',
-	express_port	:	'3000',
-	socket_address	:	'localhost',
-	socket_port		:	'443'
+    jsupdate        :    '201801020410',
+    mysql_conf      : {
+        host            : 'mysql',
+        user            : 'root',
+        password        : 'pass',
+        database        : 'dcgdev'
+    }
 };
