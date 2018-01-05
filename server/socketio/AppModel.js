@@ -22,7 +22,18 @@ exports.AppModel = class AppModel
                 }
 
                 // 正常終了時
-                resolve(results);
+                const rets = results.map(result =>
+                {
+                    const ignoreColumns = ["created_at", "creater", "updated_at", "updater"];
+                    const ret = {};
+                    for(let key in result){
+                        if(ignoreColumns.indexOf(key) < 0){
+                            ret[key.toLowerCase().replace(/_./g, x => {return x.charAt(1).toUpperCase()})] = result[key];
+                        }
+                    }
+                    return ret;
+                });
+                resolve(rets);
             });
         });
     }

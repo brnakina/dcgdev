@@ -1,10 +1,20 @@
-exports.AppController = class AppController
+const AppModel = require('../AppModel.js').AppModel;
+
+exports.BattleModel = class BattleModel extends AppModel
 {
-    constructor(io, socket, rooms)
+    constructor(gameId, mine, opp)
     {
-        this.io = io;
-        this.socket = socket;
-        this.rooms = rooms;
+        super();
+
+        this.pp = {
+            current : 1,
+            max : 10
+        };
+
+        // 現在のターン
+        this.trun = 1;
+
+
 
         this.battle = {
             pp: {
@@ -67,10 +77,8 @@ exports.AppController = class AppController
                 hands: [
                     {}, {}, {}
                 ],
-                fields: [// 場札配列
-
-                ]
+                fields: []
             },
         };
     }
-};
+}

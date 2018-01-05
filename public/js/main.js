@@ -151,7 +151,7 @@ var Main = (function() {
     },
 
     _finishTurn = function() {
-        // ここでサーバーと通信する
+
     },
 
     // サーバーからbattleを取得したら、このメソッドを呼んでください!!
