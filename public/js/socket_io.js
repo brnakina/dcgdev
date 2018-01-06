@@ -1,19 +1,18 @@
-Main.socket_io = (function(){
+$(function(){
 
     var socket = io();
 
+    // TODO 仮実装
     socket.emit('init@battle');
 
-    socket.on('init_done@battle', function(battle){
-        Main.init(battle);
+    socket.on('receive@battle', battle =>
+    {
         Main.refresh(battle);
     })
 
-    socket.emit('get@hands', 1);
-    socket.on('send@hands', function(card){
-        console.log(card);
-    })
-
+    Main.socket_io = {
+        socket: socket
+    }
 //    $('form').submit(function(){
 //      socket.emit('chat message', $('#m').val());
 //      $('#m').val('');
@@ -23,4 +22,4 @@ Main.socket_io = (function(){
 //    socket.on('chat message', function(msg){
 //      $('#messages').append($('<li>').text(msg));
 //    });
-}());
+});

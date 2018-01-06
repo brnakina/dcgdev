@@ -1,20 +1,5 @@
-/*
-カトさんへ
-
-_mouseupメソッドで、emitするメソッドが呼んであります。
-
-場に出す: _draw,
-相手のリーダーを攻撃する: _attackFace,
-相手のフォロワーを攻撃する: _attack,
-ターン終了: _finishTurn
-これらのメソッドで通信して、帰ってきたbattleを_refreshメソッドに渡すと、_battleが更新されて、canvasを再描画します。
-
-最初のデータ取得は_initメソッドで、battleを取得するように変更してください。
-
-BY 牧
-*/
-
-var Main = (function() {
+var Main = {};
+$(function() {
     var
 
     // これ使わないけど、非同期読み込みせっかく書いたから残しておく
@@ -39,13 +24,6 @@ var Main = (function() {
     _downFinish = false,
 
     _battle, // 宣言だけしておく
-
-    _init = function(battle) {
-        _battle = battle;
-        _myCtx = $('#my_canvas')[0].getContext('2d');
-        _attachEvents();
-        _drawMyCanvas();
-    },
 
     // イベントハンドラを定義する
     _attachEvents = function() {
@@ -151,7 +129,7 @@ var Main = (function() {
     },
 
     _finishTurn = function() {
-
+        Main.socket_io.socket.emit('turnEnd@battle');
     },
 
     // サーバーからbattleを取得したら、このメソッドを呼んでください!!
@@ -663,8 +641,15 @@ var Main = (function() {
         ctx.fillText(param, rect.x + rect.width / 2, rect.y + rect.height / 2);
     };
 
-    return {
+    // 元initメソッド
+    // battleはrefreshで取得して、描画もrefreshに依存する
+    (function(battle) {
+        _myCtx = $('#my_canvas')[0].getContext('2d');
+        _attachEvents();
+    }());
+
+    Main = {
+        battle: _battle,
         refresh: _refresh,
-        init: _init
     };
-}());
+});

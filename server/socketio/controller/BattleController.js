@@ -7,10 +7,20 @@ exports.BattleController = class BattleController extends AppController
     {
         super(io, socket, rooms);
 
+        this.BattleService = new BattleService();
+        this.battle =  this.BattleService.init();
+
         // バトル初期化
         socket.on('init@battle', params =>
         {
-            socket.emit('init_done@battle', BattleService.init());
+            socket.emit('receive@battle', this.battle);
+        });
+
+        // ターンエンド
+        socket.on('turnEnd@battle', params =>
+        {
+            this.battle.pp.current += 1;
+            io.sockets.emit('receive@battle', this.battle);
         });
     }
 }
