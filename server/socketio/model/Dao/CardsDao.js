@@ -1,6 +1,6 @@
-const AppModel = require('../AppModel.js').AppModel;
+const AppDao = require('../AppDao.js').AppDao;
 
-exports.CardsModel = class CardsModel extends AppModel
+exports.CardsDao = class CardsDao extends AppDao
 {
     constructor()
     {

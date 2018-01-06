@@ -1,5 +1,5 @@
 const AppController = require('../AppController.js').AppController;
-const CardsModel = require('../model/CardsModel').CardsModel;
+const CardsDao = require('../model/Dao/CardsDao').CardsDao;
 
 exports.HandsController = class HandsController extends AppController
 {
@@ -7,12 +7,12 @@ exports.HandsController = class HandsController extends AppController
     {
         super(io, socket, rooms);
 
-        this.CardsModel = new CardsModel();
+        this.CardsDao = new CardsDao();
 
         // ゲーム初期化
         socket.on('get@hands', params =>
         {
-            this.CardsModel.getCardById(params)
+            this.CardsDao.getCardById(params)
             .then(result => {
                 socket.emit('send@hands', result);
             });

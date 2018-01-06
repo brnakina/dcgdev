@@ -3,6 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const fs = require('fs');
+const util = require('util');
 
 // TODO まだVIEWへ直結しておく
 app.get('/', function(req, res){
@@ -18,7 +19,7 @@ const rooms = {};
 io.on('connection', function(socket){
 
     // 接続時
-    console.log('a user connected');
+    console.log('a user connected:' + socket.id);
 
     // socket.ioのイベント受け付け
     fs.readdir('./server/socketio/controller', (err, files) => {

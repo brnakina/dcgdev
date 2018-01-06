@@ -1,9 +1,9 @@
-exports.AppModel = class AppModel
+exports.AppDao = class AppDao
 {
     constructor()
     {
         const mysql = require('mysql');
-        const settings = require('../config.js').settings;
+        const settings = require('../../config.js').settings;
 
         this.connection = mysql.createConnection(settings.mysql_conf);
         this.connection.connect();
