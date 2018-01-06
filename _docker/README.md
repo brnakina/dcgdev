@@ -32,19 +32,12 @@ cd /home/docker/dcgdev
 ■環境変数を適用
 source /root/.profile
 
-■Expressの起動
-・実行中bashに処理が戻る（デーモン起動）
-forever start ./exp/bin/www
+■アプリケーションの起動
 
 ・実行中bashに処理が戻らない（その代わりログがコンソールに出力される）
 node ./exp/bin/www
 <ctrl+Cで停止>
 
-■socket.ioの起動
 ・実行中bashに処理が戻る（デーモン起動）
-forever start ./socket_io/app.js
-
-・実行中bashに処理が戻らない（その代わりログがコンソールに出力される）
-node ./socket_io/app.js
-<ctrl+Cで停止>
+forever start ./exp/bin/www
 ```
