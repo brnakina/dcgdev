@@ -21,7 +21,7 @@ io.on('connection', function(socket){
     // 接続時
     console.log('a user connected:' + socket.id);
 
-    // socket.ioのイベント受け付け
+    // controllerを読み込み
     fs.readdir('./server/socketio/controller', (err, files) => {
         if(err) throw err;
         files.forEach(file => {
@@ -43,5 +43,5 @@ io.on('connection', function(socket){
 
 // HTTP待ち受け開始
 http.listen(3000, function(){
-	console.log('listening on *:3000');
+    console.log('listening on *:3000');
 });

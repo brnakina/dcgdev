@@ -1,4 +1,5 @@
 const AppController = require('../AppController.js').AppController;
+const BattleService = require('../model/Service/BattleService.js').BattleService;
 
 exports.BattleController = class BattleController extends AppController
 {
@@ -9,7 +10,7 @@ exports.BattleController = class BattleController extends AppController
         // バトル初期化
         socket.on('init@battle', params =>
         {
-            socket.emit('init_done@battle', this.battle);
+            socket.emit('init_done@battle', BattleService.init());
         });
     }
 }
